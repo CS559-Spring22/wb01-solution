@@ -19,7 +19,9 @@
         
         
         
-		<div class="content post__content clearfix"><p>On the <a href="../../docs/2/" class="Prev__Page">Previous page</a> we made simple web pages, here we&rsquo;ll see how to put JavaScript programs on them.</p>
+		<div class="content post__content clearfix"><div class="dimbox">
+                    <h3>CS559 Spring 2022 Sample Solution</h3>
+                </div><p>On the <a href="../../docs/2/" class="Prev__Page">Previous page</a> we made simple web pages, here we&rsquo;ll see how to put JavaScript programs on them.</p>
 <p>JavaScript can be tricky to learn because not only must you learn a new language, but usually the programming happens in the context of a web page in a web browser.</p>
 <p>The <a href="https://pages.graphics.cs.wisc.edu/559-sp22/pages/javascript559/" target="_blank">Javascript in CS559</a> has all sorts of resources about JavaScript, including the rationale for why we are using it in class. If you are already a JavaScript expert, that page will tell you some rules for how we use JavaScript in class. If you are just learning JavaScript, the page has links to some good tutorials. You will also be able to figure a lot out from the examples we provide in the workbooks.</p>
 <p>The goal of this page is to help you understand where JavaScript programs go, when they run, and how they work with the workbooks. If anything is too unfamiliar, you might want to review some of the Javascript resources on the <a href="https://pages.graphics.cs.wisc.edu/559-sp22/pages/javascript559/" target="_blank">Javascript in CS559</a> page.</p>
@@ -82,10 +84,14 @@ with &lsquo;.es6&rsquo; to signify that we&rsquo;re using the ES6 version of Jav
 <p>If you&rsquo;re curious (and you should be) the <code>type=&quot;module&quot;</code>
 in the <code>&lt;script&gt;</code> tag tells the browser that we want the &ldquo;modern&rdquo; version of JavaScript, and that we want to treat the file as a separate module. You can see the explanation in the  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank">HTML documentation for the script tag</a>, but, basically for class we&rsquo;ll always use it.</p>
 <h2 id="box-4-when-to-run-code">Box 4: When to run code</h2>
-<p>There is a question of when those little snippets of code get run. In some cases, it&rsquo;s simple: for the button in Box 2, we assigned code to the <code>onclick</code> event of the button, so the code was run when this even happened (we&rsquo;ll discuss events more later). But, for the code in the script tags (especially when the script tag loads another file), the code will be executed when the script tag is processed - and there&rsquo;s no guarantee of what order that will happen in. This becomes even more complicated because the web browser can do things <em>asynchronously</em> - it doesn&rsquo;t wait until the first thing finishes before starting the second. 
+<p>There is a question of when those little snippets of code get run. In some cases, it&rsquo;s simple: for the button in Box 2, we assigned code to the <code>onclick</code> event of the button, so the code was run when this even happened (we&rsquo;ll discuss events more later). But, for the code in the script tags (especially when the script tag loads another file), the code will be executed when the script tag is processed - and there&rsquo;s no guarantee of what order that will happen in. This becomes even more complicated because the web browser can do things <em>asynchronously</em> - it doesn&rsquo;t wait until the first thing finishes before starting the second.
 This creates a potential problem: we want our JavaScript program
 to access our web page, but we don&rsquo;t know if the web page has finished
 loaded (and is ready to be accessed) when our program is run.</p>
+<div class="workbook-todo">
+    <strong>TODO:</strong><div> even defer seems to be different</div>
+</div>
+
 <p>Previously, we would teach you how to use the <code>window.onload</code> function here. but that is now outdated. The &ldquo;modern&rdquo; way to have a script run after the page has finished loading is to specify that in the script tag.</p>
 <p>Normally, a script tag that loads a file, such as <code>&lt;script src=&quot;01-03-03.js&quot;&gt;&lt;/script&gt;</code>, gives the browser some flexibility in when it chooses to run the script. However, we can add the <code>defer</code> flag like this: <code>&lt;script src=&quot;01-03-03.js&quot; defer&gt;&lt;/script&gt;</code> which tells the browser to run the script only after the page has finished loading. This is explained on the <a href="https://www.w3schools.com/tags/att_script_defer.asp" target="_blank">W3 Schools documentation on defer</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank">Office Script Tag Documentation</a>.</p>
 <p><a href="../../for_students/01-03-04.html" class="for_students">01-03-04.html</a> below gives an example of defer being used. Try removing it and see what happens (you will get an error, because <a href="../../for_students/01-03-04.js" class="for_students">01-03-04.js</a> can&rsquo;t find the paragraph element it&rsquo;s looking for).</p>
@@ -115,16 +121,17 @@ loaded (and is ready to be accessed) when our program is run.</p>
 <p>This is now example <a href="../../for_students/01-03-05.html" class="for_students">01-03-05.html</a>. Let&rsquo;s look at the key lines&hellip;</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">let</span> <span style="color:#75af00">button</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">getElementById</span><span style="color:#111">(</span><span style="color:#d88200">&#34;button1&#34;</span><span style="color:#111">);</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">let</span> <span style="color:#75af00">button</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">getElementById</span><span style="color:#111">(</span><span style="color:#d88200">&#34;button1&#34;</span><span style="color:#111">);</span>
 <span style="color:#75af00">button</span><span style="color:#111">.</span><span style="color:#75af00">onclick</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
     <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Button 1 Pressed!&#34;</span><span style="color:#111">);</span>
-<span style="color:#111">}</span></code></pre></td></tr></table>
+<span style="color:#111">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>Line 15 finds the button by searching for an HTML element on the page with the name button1. Good programming practice would have checked that button was actually found. We&rsquo;ll do this often - we find objects on the web page by ID and do things to them.</p>
@@ -145,7 +152,7 @@ loaded (and is ready to be accessed) when our program is run.</p>
 <p>You can see this in <a href="../../for_students/01-03-06.html" class="for_students">01-03-06.html</a>. The code is a little different&hellip;</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
@@ -153,12 +160,13 @@ loaded (and is ready to be accessed) when our program is run.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">let</span> <span style="color:#75af00">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">let</span> <span style="color:#75af00">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
 <span style="color:#00a8c8">let</span> <span style="color:#75af00">button</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">getElementById</span><span style="color:#111">(</span><span style="color:#d88200">&#34;button1&#34;</span><span style="color:#111">);</span>
 <span style="color:#75af00">button</span><span style="color:#111">.</span><span style="color:#75af00">onclick</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
     <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">`Button </span><span style="color:#d88200">${</span><span style="color:#75af00">number</span><span style="color:#d88200">}</span><span style="color:#d88200"> Pressed!`</span><span style="color:#111">);</span>
 <span style="color:#111">}</span>
-<span style="color:#75af00">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#111">;</span></code></pre></td></tr></table>
+<span style="color:#75af00">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#111">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>The first difference you may notice is line 16 - rather than printing a normal string, I am printing a string with a variable in it. The back ticks &ldquo;`&rdquo; tell Javascript that this is a <strong>template literal</strong> - a cool javascript feature that lets me access data within a string. You can read the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literals Documentation</a> to find out about them (recommended, they are quite useful). However, for now, trust me that what this does is print the value of the variable <code>number</code> in the middle of the string.</p>

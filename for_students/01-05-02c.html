@@ -47,8 +47,7 @@
     // of the loop, so that each copy of the advanceSLR function refers to
     // the same variable - this means the same slider gets updated each time!
     // (observe how it moves much faster)
-    /** @type{HTMLInputElement} */ 
-    let slr;    // define this variable outside of the loop
+    /** @type{HTMLInputElement} */ let slr;
     for (const slider of ['slider4', 'slider5', 'slider6']) {
         // slr is declared outside of the loop - so we don't get a "new"
         // variable with each iteration

@@ -19,10 +19,12 @@
         
         
         
-		<div class="content post__content clearfix"><p>On the last page, we added JavaScript to a web page, but we didn&rsquo;t do much with the JavaScript. Here&rsquo;s we&rsquo;ll see how we connect between JavaScript programs and web pages to make the code do things that we can see. Eventually, we&rsquo;ll make it do graphics, but for now, we&rsquo;ll do some simpler things.</p>
+		<div class="content post__content clearfix"><div class="dimbox">
+                    <h3>CS559 Spring 2022 Sample Solution</h3>
+                </div><p>On the last page, we added JavaScript to a web page, but we didn&rsquo;t do much with the JavaScript. Here&rsquo;s we&rsquo;ll see how we connect between JavaScript programs and web pages to make the code do things that we can see. Eventually, we&rsquo;ll make it do graphics, but for now, we&rsquo;ll do some simpler things.</p>
 <p>And yes, I am putting the javascript code right into the HTML for these simple examples. We won&rsquo;t do this in the future.</p>
 <h2 id="box-1---referring-to-html">Box 1 - Referring to HTML</h2>
-<p>We often need our JavaScript code to be able to refer to elements on the page so we can do things to them. The web browser provides many functions that allow us to search through the DOM (<em>Document Object Model</em>, the data structure that represents the web page). The most useful for us is to find an element by id. Remember from <a href="../../docs/1/">Page &nbsp;1&nbsp; (HTML and CS559)</a>, that we can label elements with an id attribute. In our JavaScript code, we can search for an element by Id and do something to it. The box has an example (and as you can guess, you should read the code in <a href="../../for_students/01-04-01.html" class="for_students">01-04-01.html</a>).</p>
+<p>We often need our JavaScript code to be able to refer to elements on the page so we can do things to them. The web browser provides many functions that allow us to search through the DOM (<em>Document Object Model</em>, the data structure that represents the web page). The most useful for us is to find an element by id. Remember from <a href="../../docs/1/">Page &nbsp;1&nbsp; (HTML and CS559)</a>, that we can label elements with an id attribute. In our JavaScript code, we can search for an element by Id and do something to it. The box has an example (and as you can guess, you should read the code in <a href="../../for_students/01-04-01.js" class="for_students">01-04-01.js</a>).</p>
 <iframe
     title="01-04-01"
     src="../../for_students/01-04-01.html"
@@ -45,7 +47,7 @@ it creates an event.
 We can tie a function (called a handler) to the event, and do things
 when the event happens.
 The style of programming is called <em>event driven programming</em> - we basically write code that does things in response to events.</p>
-<p>Different elements have different events associated with them. Buttons actually have a several different events (<code>onclick</code> that we&rsquo;ve seen, as well as <code>onmousedown</code>, <code>onmouseup</code>, and <code>onmouseleave</code> and several others). This box uses them in different ways to get different behaviors. Try moving the mouse while clicking. And then make sure to read the code in <a href="../../for_students/01-04-02.html" class="for_students">01-04-02.html</a>.</p>
+<p>Different elements have different events associated with them. Buttons actually have a several different events (<code>onclick</code> that we&rsquo;ve seen, as well as <code>onmousedown</code>, <code>onmouseup</code>, and <code>onmouseleave</code> and several others). This box uses them in different ways to get different behaviors. Try moving the mouse while clicking. And then make sure to read the code in <a href="../../for_students/01-04-02.js" class="for_students">01-04-02.js</a>.</p>
 <iframe
     title="01-04-02"
     src="../../for_students/01-04-02.html"
@@ -82,7 +84,7 @@ type information. See <a href="https://pages.graphics.cs.wisc.edu/559-sp22/pages
     scrolling="no"
     frameborder="0"
 ></iframe>
-<p>Again, read the code (in <a href="../../for_students/01-04-04.html" class="for_students">01-04-04.html</a>) and understand what is going on. Notice the difference between handling <code>onchange</code> events versus <code>oninput</code> events with sliders. One creates an event for every movement of the slider, the other only creates an event when the user is done dragging.</p>
+<p>Again, read the code (in <a href="../../for_students/01-04-04.js" class="for_students">01-04-04.js</a>) and understand what is going on. Notice the difference between handling <code>onchange</code> events versus <code>oninput</code> events with sliders. One creates an event for every movement of the slider, the other only creates an event when the user is done dragging.</p>
 <h2 id="box-5---making-things">Box 5 - Making Things</h2>
 <p>In the examples so far, we put the HTML elements in the HTML, and the script found it.
 Often, we will want the script to make new elements. Here is a simple example:</p>
@@ -98,7 +100,7 @@ Often, we will want the script to make new elements. Here is a simple example:</
 <p>Be sure to look at <a href="../../for_students/01-04-05.html" class="for_students">01-04-05.html</a> and understand it.</p>
 <p>There are two main steps to adding an element: first we need to create the element
 (and set it up appropriately), and then we need to insert it into the document
-somewhere. 
+somewhere.
 Although the <code>createElement</code> method is a method of <code>document</code>, it only
 creates the element (as a data structure). We still need to place it on the page.</p>
 <h2 id="box-6---putting-code-in-a-better-place">Box 6 - Putting Code in a Better Place</h2>
@@ -118,7 +120,7 @@ anywhere, we tend to put them at the beginning or end of the html file (outside 
     scrolling="no"
     frameborder="0"
 ></iframe>
-<p>You can see that this could have been a few lines of HTML. But, has been spread among 
+<p>You can see that this could have been a few lines of HTML. But, has been spread among
 <a href="../../for_students/01-04-06.html" class="for_students">01-04-06.html</a> and two Javascript files <a href="../../for_students/01-04-06a.js" class="for_students">01-04-06a.js</a> and <a href="../../for_students/01-04-06b.js" class="for_students">01-04-06b.js</a>.
 There was no good reason to spread it across 3 files, other than to show you that we can do it
 (and you should get used to seeing things this way).</p>
