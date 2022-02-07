@@ -88,9 +88,6 @@ in the <code>&lt;script&gt;</code> tag tells the browser that we want the &ldquo
 This creates a potential problem: we want our JavaScript program
 to access our web page, but we don&rsquo;t know if the web page has finished
 loaded (and is ready to be accessed) when our program is run.</p>
-<div class="workbook-todo">
-    <strong>TODO:</strong><div> even defer seems to be different</div>
-</div>
 
 <p>Previously, we would teach you how to use the <code>window.onload</code> function here. but that is now outdated. The &ldquo;modern&rdquo; way to have a script run after the page has finished loading is to specify that in the script tag.</p>
 <p>Normally, a script tag that loads a file, such as <code>&lt;script src=&quot;01-03-03.js&quot;&gt;&lt;/script&gt;</code>, gives the browser some flexibility in when it chooses to run the script. However, we can add the <code>defer</code> flag like this: <code>&lt;script src=&quot;01-03-03.js&quot; defer&gt;&lt;/script&gt;</code> which tells the browser to run the script only after the page has finished loading. This is explained on the <a href="https://www.w3schools.com/tags/att_script_defer.asp" target="_blank">W3 Schools documentation on defer</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank">Office Script Tag Documentation</a>.</p>
